@@ -1,0 +1,441 @@
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Increased slightly for impact */
+  min-height: 250px; /* Prevents it from getting too small */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  width: 90%; /* Ensures text doesn't touch edges on mobile */
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 300px;
+  }
+  .hero-content h1 {
+    font-size: 32px;
+  }
+}
+
+/* =========================================
+   2. MISSION SECTION
+   ========================================= */
+.mission-section {
+  width: 100%;
+  background-color: rgba(193, 103, 29, 0.15);
+  padding: 80px 0; /* Reduced slightly for better mobile flow */
+  position: relative;
+}
+
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px; /* Adjusted side padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.mission-content {
+  flex: 1;
+}
+
+.mission-title {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mission-text p {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 17px; /* 18px can be a bit large for dense text */
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.mission-image-wrapper {
+  flex: 0 0 400px; /* Fixed width basis */
+  max-width: 100%; /* Allows shrinking */
+  display: flex;
+  justify-content: center;
+}
+
+.mission-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(10px 20px 30px rgba(0, 0, 0, 0.25));
+  transform: rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.mission-img:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Responsive Mission */
+@media (max-width: 1024px) {
+  .mission-container {
+    flex-direction: column-reverse; /* Puts image ON TOP on tablet/mobile */
+    text-align: center;
+    gap: 40px;
+  }
+
+  .mission-image-wrapper {
+    flex: auto;
+    width: 300px;
+  }
+
+  /* Reset rotation on mobile for cleaner look */
+  .mission-img {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .mission-section {
+    padding: 50px 0;
+  }
+  .mission-container {
+    padding: 0 20px; /* Critical mobile spacing */
+  }
+  .mission-title {
+    font-size: 24px;
+  }
+  .mission-text p {
+    font-size: 15px;
+    text-align: left; /* Easier to read paragraph text aligned left on mobile */
+  }
+}
+
+/* =========================================
+   3. LEADERS SECTION
+   ========================================= */
+.leaders-section {
+  width: 100%;
+  padding: 80px 20px;
+  background-color: white;
+  box-sizing: border-box; /* Ensures padding includes border/width */
+}
+
+.leaders-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.leaders-header h2 {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.leaders-header p {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.leaders-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Leader Card Layout */
+.leader-card {
+  display: flex;
+  align-items: flex-start; /* Aligns to top so bio doesn't center weirdly */
+  gap: 60px;
+  justify-content: space-between;
+}
+
+.leader-card.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+/* Leader Image Block */
+.leader-image-wrapper {
+  position: relative;
+  width: 300px; /* Slightly reduced for better fit on laptops */
+  flex-shrink: 0;
+}
+
+.leader-bg-shape {
+  position: absolute;
+  top: -15px;
+  left: -12px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(193, 103, 29, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.reverse-layout .leader-bg-shape {
+  left: auto;
+  right: 12px;
+}
+
+.leader-img {
+  position: relative;
+  width: 100%; /* Makes image fill the wrapper */
+  height: auto;
+  aspect-ratio: 323/395; /* Maintains the aspect ratio */
+  object-fit: cover;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Leader Text Block */
+.leader-info {
+  flex: 1;
+}
+
+.leader-name {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-decoration: underline 1.5px;
+  text-underline-offset: 8px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.leader-role {
+  display: block;
+  color: #555;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.leader-bio p {
+  color: #444;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Responsive Leaders */
+@media (max-width: 900px) {
+  .leader-card,
+  .leader-card.reverse-layout {
+    flex-direction: column; /* Stack vertically */
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .leader-info {
+    width: 100%;
+  }
+
+  .leader-bio p {
+    text-align: left; /* Keep long text readable */
+  }
+
+  .leader-image-wrapper {
+    width: 280px; /* Smaller image for tablet */
+  }
+}
+
+/* =========================================
+   4. STATS SECTION
+   ========================================= */
+.stats-section {
+  width: 100%;
+  background-color: rgba(193, 103, 29, 0.2);
+  padding: 60px 20px;
+}
+
+.stats-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  gap: 40px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 150px;
+}
+
+.stat-number {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* =========================================
+   5. PHILOSOPHY SECTION
+   ========================================= */
+.philosophy-section {
+  width: 100%;
+  padding: 100px 0; /* Removed horizontal padding here */
+  background-color: white;
+}
+
+.philosophy-container {
+  max-width: 1200px;
+  padding: 0 30px; /* Safe internal padding */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.ph-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.ph-image-wrapper {
+  flex: 1;
+}
+
+.ph-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.ph-content {
+  flex: 1;
+}
+
+.ph-title {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ph-text {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Responsive Philosophy */
+@media (max-width: 900px) {
+  .ph-row {
+    flex-direction: column; /* Stack them */
+    text-align: center;
+    gap: 30px;
+  }
+
+  /* This ensures the image is always on top, 
+     regardless of HTML order, for a consistent mobile look */
+  .ph-row.reverse-mobile {
+    flex-direction: column-reverse;
+  }
+
+  .ph-title {
+    font-size: 24px;
+  }
+
+  .ph-text {
+    font-size: 16px;
+    text-align: left; /* Keep reading text left aligned */
+  }
+}
+
+@media (max-width: 600px) {
+  .philosophy-section {
+    padding: 60px 0;
+  }
+  .philosophy-container {
+    padding: 0 20px; /* Critical mobile padding */
+  }
+}

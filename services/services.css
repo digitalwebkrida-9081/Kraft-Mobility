@@ -1,0 +1,232 @@
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.destination-service-hero {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Increased slightly for better desktop impact */
+  min-height: 250px; /* Prevents it from collapsing on small screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* =========================================
+   2. SERVICE INTRO
+   ========================================= */
+.service-intro {
+  width: 100%;
+  background-color: white;
+  padding: 80px 20px; /* 80px vertical, 20px side for safety */
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.intro-container {
+  max-width: 1000px; /* Limited width for better readability */
+  width: 100%;
+  text-align: center; /* Centers the text block */
+}
+
+.intro-title {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.intro-text {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 0 auto; /* Centers the paragraph */
+}
+
+/* Responsive Intro */
+@media (max-width: 768px) {
+  .service-intro {
+    padding: 50px 20px; /* Reduce vertical padding on mobile */
+  }
+
+  .intro-title {
+    font-size: 28px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+    text-align: left; /* Easier to read left-aligned on mobile */
+  }
+}
+
+/* =========================================
+   3. DESTINATION DETAILS (The Zig-Zag)
+   ========================================= */
+.destination-details {
+  width: 100%;
+  background-color: rgba(193, 103, 29, 0.1);
+  padding: 80px 0; /* Removing side padding here to handle it in container */
+}
+
+.details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px; /* Safe padding prevents edge touching */
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Space between rows */
+  box-sizing: border-box;
+}
+
+/* Row Layout */
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* The Zig-Zag Logic */
+/* By default, we flip the row for .reverse-layout */
+.detail-row.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+/* Image Styling */
+.detail-image {
+  flex: 1; /* Takes 50% width */
+  display: flex;
+  justify-content: center;
+}
+
+.detail-image img {
+  width: 100%;
+  max-width: 600px;
+  height: 350px; /* Fixed height ensures uniformity */
+  object-fit: cover; /* Prevents stretching */
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Styling */
+.detail-content {
+  flex: 1; /* Takes 50% width */
+}
+
+.detail-content h2 {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.detail-content p {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* --- RESPONSIVE DESIGN (Tablet & Mobile) --- */
+
+/* Tablet (Max 1024px) */
+@media (max-width: 1024px) {
+  .detail-row {
+    gap: 40px;
+  }
+
+  .detail-image img {
+    height: 280px; /* Smaller images on tablet */
+  }
+
+  .intro-text {
+    font-size: 17px;
+  }
+}
+
+/* Mobile & Small Tablet (Max 900px) */
+@media (max-width: 900px) {
+  /* 1. Stack the rows vertically */
+  .detail-row {
+    flex-direction: column;
+    text-align: center; /* Center align text on mobile */
+    gap: 30px;
+  }
+
+  /* 2. IMPORTANT: Force reverse layout to column as well */
+  /* We use 'column' (not column-reverse) so Image stays ON TOP of text */
+  .detail-row.reverse-layout {
+    flex-direction: column;
+  }
+
+  /* 3. Make images full width */
+  .detail-image {
+    width: 100%;
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: auto; /* Let height flow naturally */
+    max-height: 300px;
+  }
+
+  /* 4. Text Adjustments */
+  .detail-content {
+    width: 100%;
+  }
+
+  .detail-content p {
+    text-align: left; /* Keep paragraphs left-aligned for readability */
+  }
+}
+
+/* Mobile Only (Max 600px) */
+@media (max-width: 600px) {
+  .destination-details {
+    padding: 50px 0;
+  }
+
+  .details-container {
+    padding: 0 20px; /* Critical: 60px/80px was too big, 20px is perfect */
+    gap: 50px; /* Reduce gap between sections */
+  }
+
+  .detail-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .detail-content p {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   4. DROPDOWN HOVER FIX
+   ========================================= */
+/* Ensure the hover works for both Services and Location */
+.services-dropdown:hover .mega-menu,
+.location-dropdown:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0;
+}

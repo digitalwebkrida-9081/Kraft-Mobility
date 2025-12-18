@@ -1,0 +1,443 @@
+/* 1. Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* 2. Header Layout */
+.main-header {
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid #c1671d;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.logo-image {
+  width: 110px;
+  height: auto;
+  display: block;
+}
+
+/* 3. Navigation Menu (Desktop) */
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #c1671d;
+}
+
+/* Dropdown styling */
+.nav-item-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  height: 90px; /* Match header height for hover target */
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s;
+}
+
+.nav-item-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* 4. Login Button */
+.auth-section {
+  display: block;
+}
+
+.btn-login {
+  background-color: #c1671d;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #a05315;
+}
+
+/* --- HAMBURGER MENU TOGGLE --- */
+.mobile-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 2000; /* Stays on top of menu */
+  width: 30px;
+  height: 25px;
+  position: relative;
+  justify-content: center;
+}
+
+.mobile-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #c1671d;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+}
+
+/* Positioning for animation */
+.mobile-toggle span:nth-child(1) {
+  top: 0;
+}
+.mobile-toggle span:nth-child(2) {
+  top: 10px;
+}
+.mobile-toggle span:nth-child(3) {
+  top: 20px;
+}
+
+/* "X" Animation */
+.mobile-toggle.active span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.mobile-toggle.active span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* --- MEGA MENU STYLES (Desktop) --- */
+.mega-menu {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 8px 8px;
+  padding: 30px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-item-dropdown:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.service-box:hover {
+  background-color: #f9f9f9;
+  color: #c1671d;
+  transform: translateY(-3px);
+}
+
+.icon-wrapper img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* --- RESPONSIVE DESIGN (Tablet) --- */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 20px;
+  }
+  .mega-menu {
+    width: 90%;
+  }
+  .mega-menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- PREMIUM FULL-SCREEN MOBILE MENU (Mobile) --- */
+@media (max-width: 900px) {
+  /* 1. Toggle Button Position */
+  .mobile-toggle {
+    display: flex;
+    position: fixed; /* Fixed to screen */
+    top: 32px; /* Adjust to align with logo */
+    right: 20px;
+  }
+
+  /* Hide Desktop Auth */
+  .auth-section {
+    display: none;
+  }
+
+  /* 2. Full Screen Menu Container */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98); /* Solid white */
+
+    /* Centering Content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    /* Animation Properties */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1500;
+  }
+
+  /* Active State */
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  /* 3. Big Centered Links */
+  .nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    border: none;
+    text-align: center;
+    width: auto;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #c1671d;
+  }
+
+  /* 4. Dropdowns (Centered Accordion) */
+  .nav-item-dropdown {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 10px 0;
+  }
+
+  .nav-item-dropdown .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .dropdown-arrow {
+    width: 12px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+
+  .nav-item-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 5. Mobile Mega Menu */
+  .mega-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-item-dropdown.active .mega-menu {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .mega-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .service-box {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid transparent;
+  }
+
+  .service-box:hover {
+    background-color: #fff9f4;
+    border-color: #fcebd9;
+  }
+
+  .icon-wrapper img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+
+  .service-box span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* --- FOOTER STYLES --- */
+.main-footer {
+  background-color: white;
+  border-top: 2px solid #c1671d;
+  padding-top: 60px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-logo-wrapper img {
+  width: 120px;
+}
+
+.footer-divider-small {
+  width: 100px;
+  height: 4px;
+  background-color: #c1671d;
+  margin: 20px 0;
+}
+
+.footer-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-text h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background-color: #c1671d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  border-top: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

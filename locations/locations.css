@@ -1,0 +1,262 @@
+.locations-hero {
+  position: relative;
+  width: 100%;
+  height: 450px; /* You can change this height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensures image doesn't spill out */
+}
+
+/* Layer 1: The Image */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* THIS makes it responsive */
+  z-index: 0;
+}
+
+/* --- LOCATION PAGE STYLES --- */
+
+/* 1. General Overview Section */
+.location-intro {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.intro-content p {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Quick Facts Grid */
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.fact-card {
+  background: #f9f9f9;
+  border-left: 4px solid #c1671d;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.fact-card h3 {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.fact-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* 2. Detailed Topics (Zig Zag) */
+.location-details {
+  width: 100%;
+  padding: 80px 20px;
+}
+
+.details-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Space between rows */
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.detail-image {
+  flex: 1;
+}
+
+.detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- YOUR EXISTING LAYOUT --- */
+.detail-text-box {
+  flex: 1;
+  background-color: rgba(193, 103, 29, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 340px;
+}
+
+.detail-text-box h2 {
+  flex-shrink: 0;
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.detail-text-box p {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Styling for Sub-headings inside the scroll area */
+.detail-content h3 {
+  color: #c1671d; /* Same orange as main title */
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 25px; /* Adds space before new sections */
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(193, 103, 29, 0.2); /* Optional: nice divider line */
+  padding-bottom: 5px;
+}
+
+.detail-content h4 {
+  color: #8a4b15; /* A slightly darker orange/brown for hierarchy */
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* Styling for Lists (Bullet points) */
+.detail-content ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.detail-content li {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 16px; /* Matches your p tag size */
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  list-style-type: disc; /* Ensures bullets show up */
+}
+
+/* Styling for Bold Text */
+.detail-content strong {
+  font-weight: 600;
+  color: #333; /* Slightly darker black for emphasis */
+}
+
+/* --- THE SCROLLABLE AREA --- */
+.detail-content {
+  overflow-y: auto;
+  padding-right: 15px; /* Added extra space so text doesn't touch scrollbar */
+
+  /* Firefox Support */
+  scrollbar-width: thin;
+  scrollbar-color: #c1671d rgba(193, 103, 29, 0.05);
+}
+
+/* --- SCROLLBAR STYLING (Chrome, Edge, Safari) --- */
+
+/* 1. Target .detail-content, not .detail-text-box */
+.detail-content::-webkit-scrollbar {
+  width: 6px; /* slightly thinner looks more modern */
+}
+
+/* 2. Track */
+.detail-content::-webkit-scrollbar-track {
+  background: rgba(193, 103, 29, 0.05);
+  border-radius: 10px;
+  margin-top: 5px; /* Adds a little gap at the top */
+  margin-bottom: 5px; /* Adds a little gap at the bottom */
+}
+
+/* 3. Handle */
+.detail-content::-webkit-scrollbar-thumb {
+  background: #c1671d;
+  border-radius: 10px;
+}
+
+/* 4. Handle on hover */
+.detail-content::-webkit-scrollbar-thumb:hover {
+  background: #a05212;
+  cursor: pointer;
+}
+
+/* Reverse Layout for alternating rows */
+.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media (max-width: 1024px) {
+  .facts-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+
+  .detail-row {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .facts-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+
+  .detail-row,
+  .reverse-layout {
+    flex-direction: column; /* Stack image and text */
+  }
+
+  .detail-text-box {
+    padding: 25px; /* Less padding on mobile */
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .detail-text-box h2 {
+    font-size: 26px;
+  }
+}
