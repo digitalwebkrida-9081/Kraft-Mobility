@@ -1,0 +1,141 @@
+/* --- AUTH PAGES (Login / Signup) --- */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Light grey background */
+  font-family: "Inter", sans-serif;
+}
+
+/* 1. Main Container (Centers the box) */
+.auth-container {
+  width: 100%;
+  min-height: 100vh; /* Takes full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* 2. The Login Card */
+.auth-card {
+  background: white;
+  width: 100%;
+  max-width: 450px; /* Limits width */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  text-align: center;
+  border-top: 5px solid #c1671d; /* Nice orange accent on top */
+}
+
+/* 3. Header */
+.auth-title {
+  color: #c1671d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.auth-subtitle {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* 4. Form Styling */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.form-group input:focus {
+  border-color: #c1671d;
+}
+
+/* 5. Options (Forgot Password) */
+.form-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.forgot-password {
+  color: #c1671d;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* 6. Button */
+.btn-auth {
+  width: 100%;
+  background-color: #c1671d;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-auth:hover {
+  background-color: #a05315;
+}
+
+/* 7. Footer (Sign Up Link) */
+.auth-footer {
+  margin-top: 30px;
+  font-size: 15px;
+  color: #666;
+}
+
+.auth-footer a {
+  color: #c1671d;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+  }
+
+  .auth-title {
+    font-size: 28px;
+  }
+}

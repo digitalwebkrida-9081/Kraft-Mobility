@@ -63,19 +63,23 @@
 /* =========================================
    2. MISSION SECTION
    ========================================= */
+/* 1. Ensure the parent allows items to hang outside */
 .mission-section {
   width: 100%;
   background-color: rgba(193, 103, 29, 0.15);
-  padding: 80px 0; /* Reduced slightly for better mobile flow */
+  padding: 40px 0px;
+  padding-bottom: 20px;
   position: relative;
+  overflow: visible; /* CRITICAL: Allows image to show on the white part */
+  z-index: 1; /* Keeps the beige background behind */
 }
 
 .mission-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 30px; /* Adjusted side padding */
+  margin: 0px auto;
+  padding: 0 0px;
   display: flex;
-  align-items: center;
+  align-items: center; /* Vertically centers the text */
   justify-content: space-between;
   gap: 60px;
 }
@@ -97,21 +101,33 @@
 .mission-text p {
   color: #333;
   font-family: "Inter", sans-serif;
-  font-size: 17px; /* 18px can be a bit large for dense text */
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.8;
   margin-bottom: 20px;
 }
 
+/* 2. Push the image down to create the overlap */
 .mission-image-wrapper {
-  flex: 0 0 400px; /* Fixed width basis */
-  max-width: 100%; /* Allows shrinking */
+  flex: 0 0 420px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
+
+  position: relative;
+  z-index: 10; /* Ensures image sits ON TOP of the white section below */
+
+  /* PUSH DOWN: Adjust this value to control how much is white/beige */
+  top: 140px;
+
+  /* PULL UP BOUNDARY: Must match the 'top' value but negative. 
+     This makes the beige background stop at the middle of the image. */
+  margin-bottom: -140px;
 }
 
+/* Rest of your image styles remain the same */
 .mission-img {
-  width: 100%;
+  width: 110%;
   height: auto;
   filter: drop-shadow(10px 20px 30px rgba(0, 0, 0, 0.25));
   transform: rotate(-5deg);
@@ -122,10 +138,12 @@
   transform: rotate(0deg) scale(1.05);
 }
 
-/* Responsive Mission */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 1024px) {
   .mission-container {
-    flex-direction: column-reverse; /* Puts image ON TOP on tablet/mobile */
+    flex-direction: column-reverse; /* Image on top */
     text-align: center;
     gap: 40px;
   }
@@ -133,11 +151,15 @@
   .mission-image-wrapper {
     flex: auto;
     width: 300px;
+
+    /* KEY CHANGE: Reset the 'hanging' position on tablet/mobile 
+       so it doesn't overlap the text below it */
+    top: 0;
+    margin-bottom: 0px;
   }
 
-  /* Reset rotation on mobile for cleaner look */
   .mission-img {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Cleaner look on mobile */
   }
 }
 
@@ -146,17 +168,16 @@
     padding: 50px 0;
   }
   .mission-container {
-    padding: 0 20px; /* Critical mobile spacing */
+    padding: 0 20px;
   }
   .mission-title {
     font-size: 24px;
   }
   .mission-text p {
     font-size: 15px;
-    text-align: left; /* Easier to read paragraph text aligned left on mobile */
+    text-align: left;
   }
 }
-
 /* =========================================
    3. LEADERS SECTION
    ========================================= */
@@ -211,33 +232,37 @@
 /* Leader Image Block */
 .leader-image-wrapper {
   position: relative;
-  width: 300px; /* Slightly reduced for better fit on laptops */
+  width: 300px;
   flex-shrink: 0;
+  z-index: 1; /* Creates a stacking context */
 }
 
 .leader-bg-shape {
   position: absolute;
-  top: -15px;
-  left: -12px;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it perfectly */
+  width: 106%; /* Makes it slightly larger than the image */
+  height: 106%;
   background-color: rgba(193, 103, 29, 0.2);
   z-index: 1;
   border-radius: 4px;
 }
 
-.reverse-layout .leader-bg-shape {
-  left: auto;
-  right: 12px;
+/* Reverse Layout Logic */
+.leader-card .reverse-layout .leader-bg-shape {
+  left: auto; /* Reset left */
+  right: 15px; /* Move to the LEFT side relative to the right edge */
 }
 
 .leader-img {
   position: relative;
-  width: 100%; /* Makes image fill the wrapper */
+  display: block; /* Removes invisible bottom gap */
+  width: 100%;
   height: auto;
-  aspect-ratio: 323/395; /* Maintains the aspect ratio */
+  aspect-ratio: 323/395;
   object-fit: cover;
-  z-index: 2;
+  z-index: 2; /* Image sits on top */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }

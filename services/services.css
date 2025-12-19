@@ -25,19 +25,27 @@
 /* =========================================
    2. SERVICE INTRO
    ========================================= */
+/* =========================================
+   2. SERVICE INTRO
+   ========================================= */
 .service-intro {
   width: 100%;
   background-color: white;
-  padding: 80px 20px; /* 80px vertical, 20px side for safety */
+  /* CHANGED: Removed side padding here. We handle it in the container now. */
+  padding: 80px 0;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
 }
 
 .intro-container {
-  max-width: 1000px; /* Limited width for better readability */
+  /* SAME WIDTH as offerings */
+  max-width: 1200px;
   width: 100%;
-  text-align: center; /* Centers the text block */
+  text-align: left;
+  /* ADDED: Side padding matches the offerings container exactly */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .intro-title {
@@ -50,19 +58,28 @@
   letter-spacing: 1px;
 }
 
+.service-intro .intro-subheading {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
 .intro-text {
   color: #333;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.8;
-  margin: 0 auto; /* Centers the paragraph */
+  margin: 0;
+  max-width: 800px;
 }
 
 /* Responsive Intro */
 @media (max-width: 768px) {
   .service-intro {
-    padding: 50px 20px; /* Reduce vertical padding on mobile */
+    padding: 50px 0; /* Keep vertical padding, sides handled by container */
   }
 
   .intro-title {
@@ -71,7 +88,86 @@
 
   .intro-text {
     font-size: 16px;
-    text-align: left; /* Easier to read left-aligned on mobile */
+  }
+}
+
+/* ===========================================
+   3. KEY OFFERINGS SECTION
+   ======================================== */
+
+.key-offerings {
+  background-color: white;
+  width: 100%;
+  display: flex; /* Added flex to match intro behavior */
+  justify-content: center;
+}
+
+.offerings-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  /* CHANGED: Matches the intro container padding exactly */
+  padding: 0 20px 40px 20px; /* 0 top, 20 side, 40 bottom */
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* Title Styling */
+.offerings-title {
+  color: #c1671d;
+  font-size: 28px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+/* List Styling */
+.offerings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offerings-item {
+  margin-bottom: 25px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: black;
+}
+
+.key-term {
+  color: #c1671d;
+  font-weight: 500;
+}
+
+.description {
+  font-weight: 300;
+  color: black;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .offerings-title {
+    font-size: 28px;
+  }
+  .offerings-item {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Container handles the padding automatically, no changes needed here mostly */
+
+  .offerings-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .offerings-item {
+    font-size: 18px;
+    margin-bottom: 15px;
   }
 }
 
