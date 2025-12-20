@@ -907,9 +907,10 @@
 
 /* --- JOURNEY FORM SECTION --- */
 
+/* --- LAYOUT STYLES --- */
 .journey-section {
   width: 100%;
-  padding: 40px 250px; /* Big Desktop Padding */
+  padding: 40px 250px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -919,7 +920,6 @@
 .journey-header {
   text-align: center;
   margin-bottom: 40px;
-  letter-spacing: 0.5px;
 }
 
 .journey-header h2 {
@@ -948,7 +948,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.form-grid {
+.journey-form .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 30px;
@@ -956,25 +956,25 @@
   margin-bottom: 30px;
 }
 
-.form-group {
+.journey-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.full-width {
+.journey-form .full-width {
   grid-column: span 2;
 }
 
-.form-group label {
+.journey-form label {
   color: black;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
 }
 
-.form-group input,
-.form-group textarea {
+.journey-form input,
+.journey-form textarea {
   width: 100%;
   padding: 12px 15px;
   border: 1.4px solid #d1d5db;
@@ -986,31 +986,14 @@
   transition: border-color 0.3s;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.journey-form input:focus,
+.journey-form textarea:focus {
   border-color: #c1671d;
 }
 
-.form-group textarea {
+.journey-form textarea {
   height: 120px;
   resize: vertical;
-}
-
-.input-with-icon {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.input-with-icon .prefix {
-  position: absolute;
-  left: 15px;
-  color: #141d38;
-  font-weight: 500;
-}
-
-.input-with-icon input {
-  padding-left: 50px;
 }
 
 .btn-submit {
@@ -1031,37 +1014,142 @@
   background-color: #a05315;
 }
 
-/* --- RESPONSIVE FORM --- */
+/* --- DROPDOWN SPECIFIC STYLES --- */
+
+/* Wrapper keeps elements together */
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* The Trigger Area (Flag + Arrow) */
+.dropdown-trigger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-left: 15px; /* Space from left edge */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* GAP: Space between Flag and Arrow */
+  cursor: pointer;
+  z-index: 5;
+  user-select: none;
+}
+
+/* Flag Size */
+.flag-icon {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #eee;
+}
+
+/* Arrow Size */
+.dropdown-arrow {
+  width: 12px;
+  height: auto;
+}
+
+/* INPUT PADDING FIXES (Crucial for spacing) */
+
+/* Phone Input: Needs space for Flag + Code + Arrow + Gap */
+#journey-phone-wrapper input {
+  padding-left: 115px;
+}
+
+/* Country Input: Needs space for Flag + Arrow + Gap */
+#journey-country-wrapper input {
+  padding-left: 80px;
+}
+
+/* The List (Hidden by default) */
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Class to show the list */
+.dropdown-list.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* --- IMPROVED RESPONSIVE STYLES --- */
+
+/* Tablet & Smaller Laptops */
 @media (max-width: 1200px) {
   .journey-section {
-    padding: 40px 100px;
-  } /* Reduce huge side padding */
+    padding: 60px 50px; /* Reduced side padding */
+  }
 }
 
+/* Tablets */
 @media (max-width: 900px) {
   .journey-section {
-    padding: 40px 50px;
+    padding: 50px 30px;
   }
 }
 
+/* Mobile Devices (The Fix) */
 @media (max-width: 768px) {
   .journey-section {
-    padding: 40px 20px; /* Minimal padding for mobile */
+    padding: 40px 15px; /* Less padding on edges for mobile */
   }
+
+  /* FIX: Added .journey-form to increase specificity so this overrides desktop styles */
+  .journey-form .form-grid {
+    grid-template-columns: 1fr; /* Forces 1 column layout */
+    column-gap: 0;
+    row-gap: 20px; /* Slightly tighter gap for mobile */
+  }
+
+  /* FIX: Ensure full width spans 1 column */
+  .journey-form .full-width {
+    grid-column: span 1;
+  }
+
+  /* Reduce internal container padding to give inputs more room */
+  .journey-form-container {
+    padding: 25px 20px;
+    width: 100%;
+  }
+
+  /* Adjust Header text size for mobile */
   .journey-header h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
+
   .journey-header p {
     font-size: 16px;
   }
-  .journey-form-container {
-    padding: 25px;
-  }
-  .form-grid {
-    grid-template-columns: 1fr; /* Stack inputs vertically */
-    column-gap: 0;
-  }
-  .full-width {
-    grid-column: span 1;
+
+  /* OPTIONAL: Adjust Phone Input padding if it feels too tight on very small screens */
+  #journey-phone-wrapper input {
+    font-size: 14px; /* Prevents zooming on iOS */
   }
 }

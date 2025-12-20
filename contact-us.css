@@ -100,10 +100,6 @@ textarea {
   align-items: center;
 }
 
-.input-with-icon input {
-  padding-left: 60px; /* Space for the icon */
-}
-
 .country-code,
 .country-flag {
   position: absolute;
@@ -131,6 +127,80 @@ textarea {
 
 .btn-submit:hover {
   background-color: #a05315;
+}
+/* Flag Image Sizing */
+.flag-icon {
+  width: 24px; /* Fixed width for consistency */
+  height: 16px; /* Fixed height */
+  object-fit: cover; /* Ensures flag isn't stretched */
+  border-radius: 2px;
+  border: 1px solid #eee; /* Slight border for white flags like Japan */
+}
+
+/* Adjust the input padding */
+.input-with-icon input {
+  padding-left: 110px;
+}
+
+/* Country Input padding (smaller because no +91 text) */
+#country-wrapper input {
+  padding-left: 80px;
+}
+
+/* Same Wrapper Styles as before */
+.dropdown-trigger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 10px 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Gap between flag and text */
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  margin-left: 4px;
+}
+
+/* Dropdown visibility logic */
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%; /* Matches input width */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-list.show {
+  display: block;
 }
 
 /* 4. Info Card Styling */

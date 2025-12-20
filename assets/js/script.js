@@ -106,3 +106,99 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  document.querySelectorAll(".dropdown-list").forEach((list) => {
+    if (list.id !== id) list.classList.remove("show");
+  });
+  dropdown.classList.toggle("show");
+}
+
+// Update Phone Selection (Changes Image Src + Text Code)
+function selectPhone(countryCode, dialCode) {
+  // Update the flag image source
+  document.getElementById(
+    "selected-phone-flag"
+  ).src = `https://flagcdn.com/w40/${countryCode}.png`;
+
+  // Update the dial code text
+  document.getElementById("selected-phone-code").innerText = dialCode;
+
+  // Hide dropdown
+  document.getElementById("phone-dropdown").classList.remove("show");
+}
+
+// Update Country Selection (Changes Image Src + Input Value)
+function selectCountry(countryCode, countryName) {
+  // Update the flag image source
+  document.getElementById(
+    "selected-country-flag"
+  ).src = `https://flagcdn.com/w40/${countryCode}.png`;
+
+  // Update the input value
+  document.getElementById("country").value = countryName;
+
+  // Hide dropdown
+  document.getElementById("country-dropdown").classList.remove("show");
+}
+
+// Close when clicking outside
+window.onclick = function (event) {
+  if (!event.target.closest(".dropdown-trigger")) {
+    var dropdowns = document.getElementsByClassName("dropdown-list");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
+// =============================
+//  Home PAge Contact form dropdown
+// =============================
+
+// Toggle Logic
+function toggleJourneyDropdown(listId) {
+  const list = document.getElementById(listId);
+  // Close others
+  document.querySelectorAll(".journey-section .dropdown-list").forEach((el) => {
+    if (el.id !== listId) el.classList.remove("show");
+  });
+  list.classList.toggle("show");
+}
+
+// Select Phone Logic
+function selectJourneyPhone(countryCode, dialCode) {
+  // Update Flag and Code
+  document.getElementById(
+    "journey-phone-flag"
+  ).src = `https://flagcdn.com/w40/${countryCode}.png`;
+  document.getElementById("journey-phone-code").innerText = dialCode;
+  // Close List
+  document.getElementById("journey-phone-list").classList.remove("show");
+}
+
+// Select Country Logic
+function selectJourneyCountry(countryCode, countryName) {
+  // Update Flag and Input Value
+  document.getElementById(
+    "journey-country-flag"
+  ).src = `https://flagcdn.com/w40/${countryCode}.png`;
+  document.getElementById("journey-country-input").value = countryName;
+  // Close List
+  document.getElementById("journey-country-list").classList.remove("show");
+}
+
+// Close when clicking outside
+window.addEventListener("click", function (e) {
+  if (!e.target.closest(".dropdown-trigger")) {
+    document
+      .querySelectorAll(".journey-section .dropdown-list")
+      .forEach((el) => {
+        el.classList.remove("show");
+      });
+  }
+});

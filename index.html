@@ -117,6 +117,16 @@
                   </div>
                   <span>Kolkata</span>
                 </a>
+
+                <a href="locations/guwahati.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="assets/images/guwahati-location-icon.png"
+                      alt="Guwahati"
+                    />
+                  </div>
+                  <span>Guwahati</span>
+                </a>
               </div>
             </div>
           </div>
@@ -360,6 +370,18 @@
             <h3 class="city-name">Kolkata</h3>
           </div>
         </a>
+        <a href="locations/guwahati.html">
+          <div class="city-card">
+            <div class="city-icon">
+              <img
+                src="assets/images/guwahati-location-icon.png"
+                alt="Guwahati Icon"
+              />
+            </div>
+            <h3 class="city-name">Guwahati</h3>
+          </div>
+        </a>
+        
       </div>
     </section>
 
@@ -743,57 +765,95 @@
     </section>
 
     <section class="journey-section">
-      <div class="journey-header">
-        <h2>Start Your Journey, with us</h2>
-        <p>Simplifying Transitions, Empowering New Beginnings</p>
-      </div>
+  <div class="journey-header">
+    <h2>Start Your Journey, with us</h2>
+    <p>Simplifying Transitions, Empowering New Beginnings</p>
+  </div>
 
-      <div class="journey-form-container">
-        <form class="journey-form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" placeholder="First Name" />
+  <div class="journey-form-container">
+    <form class="journey-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name" />
+        </div>
+
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last Name" />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <div class="input-with-icon dropdown-wrapper" id="journey-phone-wrapper">
+            
+            <div class="dropdown-trigger" onclick="toggleJourneyDropdown('journey-phone-list')">
+              <img src="https://flagcdn.com/w40/us.png" alt="US" id="journey-phone-flag" class="flag-icon">
+              <span id="journey-phone-code">+1</span>
+              <img class="dropdown-arrow" src="../assets/images/dropdown-header-icon.svg" alt="▼" />
             </div>
 
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" placeholder="Last Name" />
-            </div>
-
-            <div class="form-group">
-              <label>Phone Number</label>
-              <div class="input-with-icon">
-                <span class="prefix">+1</span>
-                <input type="tel" placeholder="Enter Your Contact" />
+            <div class="dropdown-list" id="journey-phone-list">
+              <div class="dropdown-item" onclick="selectJourneyPhone('us', '+1')">
+                <img src="https://flagcdn.com/w40/us.png" class="flag-icon"> USA (+1)
+              </div>
+              <div class="dropdown-item" onclick="selectJourneyPhone('in', '+91')">
+                <img src="https://flagcdn.com/w40/in.png" class="flag-icon"> India (+91)
+              </div>
+              <div class="dropdown-item" onclick="selectJourneyPhone('gb', '+44')">
+                <img src="https://flagcdn.com/w40/gb.png" class="flag-icon"> UK (+44)
               </div>
             </div>
 
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="Email address" />
-            </div>
-
-            <div class="form-group">
-              <label>Company Name</label>
-              <input type="text" placeholder="Company Name" />
-            </div>
-
-            <div class="form-group">
-              <label>Country</label>
-              <input type="text" placeholder="Country Name" />
-            </div>
-
-            <div class="form-group full-width">
-              <label>Requirement</label>
-              <textarea placeholder="Other Requirement Details..."></textarea>
-            </div>
+            <input type="tel" id="journey-phone-input" placeholder="Enter Your Contact" />
           </div>
+        </div>
 
-          <button type="submit" class="btn-submit">Submit</button>
-        </form>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Email address" />
+        </div>
+
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" placeholder="Company Name" />
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <div class="input-with-icon dropdown-wrapper" id="journey-country-wrapper">
+            
+            <div class="dropdown-trigger" onclick="toggleJourneyDropdown('journey-country-list')">
+              <img src="https://flagcdn.com/w40/us.png" alt="Flag" id="journey-country-flag" class="flag-icon">
+              <img class="dropdown-arrow" src="../assets/images/dropdown-header-icon.svg" alt="▼" />
+            </div>
+
+            <div class="dropdown-list" id="journey-country-list">
+              <div class="dropdown-item" onclick="selectJourneyCountry('us', 'USA')">
+                <img src="https://flagcdn.com/w40/us.png" class="flag-icon"> USA
+              </div>
+              <div class="dropdown-item" onclick="selectJourneyCountry('in', 'India')">
+                <img src="https://flagcdn.com/w40/in.png" class="flag-icon"> India
+              </div>
+              <div class="dropdown-item" onclick="selectJourneyCountry('gb', 'United Kingdom')">
+                <img src="https://flagcdn.com/w40/gb.png" class="flag-icon"> United Kingdom
+              </div>
+            </div>
+
+            <input type="text" id="journey-country-input" placeholder="Country Name" />
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Requirement</label>
+          <textarea placeholder="Other Requirement Details..."></textarea>
+        </div>
       </div>
-    </section>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+</section>
 
     <footer class="main-footer">
       <div class="footer-content">
