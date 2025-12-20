@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PR Service- Kraft Mobility</title>
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./services.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================================
+     IMMIGRATION PAGE SPECIFIC (Vertical Images)
+   ========================================= */
+
+      /* 1. Force the row to stretch equal height ONLY on this page */
+      .immigration-layout .detail-row {
+        align-items: stretch;
+      }
+
+      /* 2. Remove default constraints on the image container */
+      .immigration-layout .detail-image {
+        height: auto;
+        display: block; /* Overrides flex if set globally */
+        position: relative;
+      }
+
+      /* 3. Force image to fill vertical space */
+      .immigration-layout .detail-image img {
+        width: 100%;
+        max-width: none; /* Override global max-width constraint */
+        height: 100% !important; /* Force full height */
+        object-fit: cover; /* Ensures image crops nicely without stretching */
+        border-radius: 12px;
+      }
+
+      /* --- MOBILE RESET --- */
+      /* We must disable this logic on mobile so images don't look weirdly tall */
+      @media (max-width: 900px) {
+        .immigration-layout .detail-row {
+          align-items: center; /* Go back to normal stacking */
+        }
+
+        .immigration-layout .detail-image img {
+          height: 300px !important; /* Reset to standard fixed height for mobile */
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-container">
+        <a href="../index.html">
+          <div class="logo-wrapper">
+            <img
+              src="../assets/images/logo.svg"
+              alt="Logo"
+              class="logo-image"
+            />
+          </div>
+        </a>
+
+        <nav class="nav-menu">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../about-us.html" class="nav-link">About Us</a>
+
+          <div class="nav-item-dropdown location-dropdown">
+            <a href="#" class="nav-link">Location</a>
+            <img
+              class="dropdown-arrow"
+              src="../assets/images/dropdown-header-icon.svg"
+              alt="arrow"
+            />
+
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <a href="../locations/mumbai.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/home-mumbai-location.png"
+                      alt="Mumbai"
+                    />
+                  </div>
+                  <span>Mumbai</span>
+                </a>
+
+                <a href="../locations/bengaluru.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/bengluru-home-location.png"
+                      alt="Bengaluru"
+                    />
+                  </div>
+                  <span>Bengaluru</span>
+                </a>
+
+                <a href="../locations/pune.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/pune-home-location.png"
+                      alt="Pune"
+                    />
+                  </div>
+                  <span>Pune</span>
+                </a>
+
+                <a href="../locations/chennai.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/chennai-home-location.png"
+                      alt="Chennai"
+                    />
+                  </div>
+                  <span>Chennai</span>
+                </a>
+
+                <a href="../locations/hydrabad.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/hydrabad-home-location.png"
+                      alt="Hyderabad"
+                    />
+                  </div>
+                  <span>Hyderabad</span>
+                </a>
+
+                <a href="../locations/delhi.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/delhi-home-location.png"
+                      alt="Delhi"
+                    />
+                  </div>
+                  <span>Delhi</span>
+                </a>
+
+                <a href="../locations/ahmedabad.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/ahmedabad-home-location.png"
+                      alt="Ahmedabad"
+                    />
+                  </div>
+                  <span>Ahmedabad</span>
+                </a>
+
+                <a href="../locations/kolakata.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/kolakata-home-location.png"
+                      alt="Kolkata"
+                    />
+                  </div>
+                  <span>Kolkata</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item-dropdown services-dropdown">
+            <a href="#" class="nav-link">Services</a>
+            <img
+              class="dropdown-arrow"
+              src="../assets/images/dropdown-header-icon.svg"
+              alt="arrow"
+            />
+
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <a
+                  href="../services/destination-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/destination-service-icon.png"
+                      alt="Destination"
+                    />
+                  </div>
+                  <span>Destination Service</span>
+                </a>
+
+                <a
+                  href="../services/immigration-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/immigration-service-icon.png"
+                      alt="Immigration"
+                    />
+                  </div>
+                  <span>Immigration Service</span>
+                </a>
+
+                <a
+                  href="../services/shipment-household-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/shipment-household-service-icon.png"
+                      alt="Shipment"
+                    />
+                  </div>
+                  <span>Shipment & Household</span>
+                </a>
+
+                <a
+                  href="../services/tax-advisory-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/tax-advisory-icon.png"
+                      alt="Tax"
+                    />
+                  </div>
+                  <span>Tax Advisory Service</span>
+                </a>
+
+                <a
+                  href="../services/furniture-rental-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/furniture-service-icon.png"
+                      alt="Furniture"
+                    />
+                  </div>
+                  <span>Furniture Rental</span>
+                </a>
+
+                <a
+                  href="../services/car-rental-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/car-rental-service-icon.png"
+                      alt="Car"
+                    />
+                  </div>
+                  <span>Car Rental Service</span>
+                </a>
+
+                <a
+                  href="../services/corporate-housing-service.html"
+                  class="service-box"
+                >
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/corporate-housing-service-icon.png"
+                      alt="Housing"
+                    />
+                  </div>
+                  <span>Corporate Housing</span>
+                </a>
+
+                <a href="../services/PR-service.html" class="service-box">
+                  <div class="icon-wrapper">
+                    <img
+                      src="../assets/images/PR-service-icon.png"
+                      alt="permanent residency"
+                    />
+                  </div>
+                  <span>PR Service</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="../blog.html" class="nav-link">Blogs</a>
+          <a href="../contact-us.html" class="nav-link">Contact Us</a>
+        </nav>
+
+        <div class="auth-section">
+          <a href="../login.html" class="btn-login">Log In</a>
+        </div>
+
+        <div class="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="destination-service-hero">
+      <img
+        src="../assets/images/pr.bg.png"
+        alt="destination Background"
+        class="hero-image"
+      />
+
+      <!-- <div class="hero-overlay"></div> -->
+
+      <!-- <div class="hero-content">
+        <h1>ABOUT US</h1>
+      </div> -->
+    </section>
+
+    <section class="service-intro">
+      <div class="intro-container">
+        <h1 class="intro-title">Permanent Residency (Immigration Opportunities)</h1>
+
+        <p class="intro-subheading">
+          “Permanent Residency Made Easy, Efficient & Error-Free by Kraft
+          Mobility Private Limited.”
+        </p>
+
+        <p class="intro-text">
+          We simplify the complex PR process with expert case handling,
+          transparent updates, and 100% compliant documentation. No confusion,
+          no delays—only a smooth, predictable pathway to global settlement.
+        </p>
+      </div>
+    </section>
+
+    <section class="destination-details immigration-layout">
+      <div class="details-container">
+        <div class="detail-row">
+          <div class="detail-image">
+            <img
+              src="../assets/images/immigration-1.jpg"
+              alt="Canada PR Immigration"
+            />
+          </div>
+          <div class="detail-content">
+            <span class="country-tag">Top Choice</span>
+            <h2>Canada – Permanent Residency</h2>
+            <p class="lead-text">
+              Your Pathway to a Better Life. Canada is one of the world’s most
+              immigrant-friendly nations, offering high-paying jobs (IT,
+              Healthcare, Engineering) and a stable future.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-col">
+                <h4 class="sub-label">Why Choose Canada?</h4>
+                <ul class="premium-list">
+                  <li>Express Entry (Fastest PR System)</li>
+                  <li>Provincial Nominee Programs (PNP)</li>
+                  <li>Pathway to Citizenship after PR</li>
+                  <li>Free Healthcare & Education</li>
+                </ul>
+              </div>
+              <div class="info-col">
+                <h4 class="sub-label">Eligibility</h4>
+                <ul class="premium-list">
+                  <li>Age: 18–45 preferred</li>
+                  <li>Education: Diploma/Degree/Master</li>
+                  <li>Work Exp: 1+ Years</li>
+                  <li>Proof of Funds availability</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="kraft-help-container">
+              <h4 class="kraft-help-title">How We Help You</h4>
+              <ul class="kraft-help-grid">
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Profile Assessment
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> IELTS Guidance
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> ECA (Education
+                  Assessment)
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Express Entry Creation
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Documentation &
+                  Submission
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Job Assistance
+                  (Optional)
+                </li>
+                <li
+                  class="kraft-help-item"
+                  style="grid-column: span 2; font-weight: 600; color: #c1671d"
+                >
+                  <span class="kraft-help-icon">★</span> End-to-end Support till
+                  Landing
+                </li>
+              </ul>
+            </div>
+
+            <div class="meta-footer">
+              <span class="info-badge">⏳ Time: 12–15 Months</span>
+              <span class="info-badge outline">Min. IELTS: CLB 6–7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row reverse-layout">
+          <div class="detail-image">
+            <img
+              src="../assets/images/immigration-2.jpg"
+              alt="Australia Skilled Migration"
+            />
+          </div>
+          <div class="detail-content">
+            <span class="country-tag">High Income</span>
+            <h2>Australia – Skilled Migration</h2>
+            <p class="lead-text">
+              Build your future in a strong economy. Known for high packages
+              (AUD 80k – 120k/year) and excellent work-life balance.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-col">
+                <h4 class="sub-label">Why Australia?</h4>
+                <ul class="premium-list">
+                  <li><strong>Subclasses:</strong> 189, 190, & 491</li>
+                  <li>PR leads to Citizenship</li>
+                  <li>Free schooling for children</li>
+                  <li>Full Healthcare benefits</li>
+                  <li>Safe & Modern Lifestyle</li>
+                </ul>
+              </div>
+              <div class="info-col">
+                <h4 class="sub-label">Eligibility</h4>
+                <ul class="premium-list">
+                  <li>Age: Below 45</li>
+                  <li>Skilled Occupation List Match</li>
+                  <li>Qualification & Work Exp.</li>
+                  <li>Points (Minimum 65)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="kraft-help-container">
+              <h4 class="kraft-help-title">How We Support You</h4>
+              <ul class="kraft-help-grid">
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Points Calculation
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Skill Assessment
+                  Guidance
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> English Test Support
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> EOI Profile Submission
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> State Nomination
+                  Assistance
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Full Documentation
+                  Support
+                </li>
+              </ul>
+            </div>
+
+            <div class="meta-footer">
+              <span class="info-badge">⏳ Time: 8–10 Months</span>
+              <span class="info-badge outline">English: IELTS/PTE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-image">
+            <img
+              src="../assets/images/immigration-3.jpg"
+              alt="Germany Opportunity Card"
+            />
+          </div>
+          <div class="detail-content">
+            <span class="country-tag">No Job Offer Needed</span>
+            <h2>Germany Opportunity Card</h2>
+            <p class="lead-text">
+              The "Chancenkarte" allows you to move to Germany and search for a
+              job legally for up to 1 year. Opportunities in IT, Eng,
+              Hospitality & Healthcare.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-col">
+                <h4 class="sub-label">Key Benefits</h4>
+                <ul class="premium-list">
+                  <li>No job offer needed to apply</li>
+                  <li>Part-time work allowed (20hrs/wk)</li>
+                  <li>Pathway to Work Visa → PR</li>
+                  <li>Fast & Simple Process</li>
+                </ul>
+              </div>
+              <div class="info-col">
+                <h4 class="sub-label">Requirements</h4>
+                <ul class="premium-list">
+                  <li>Professional Qual. or Degree</li>
+                  <li>Basic German/English Skills</li>
+                  <li>Points Selection (Min 6)</li>
+                  <li>Financial Proof</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="kraft-help-container">
+              <h4 class="kraft-help-title">Kraft Mobility Helps With</h4>
+              <ul class="kraft-help-grid">
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Points Evaluation
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Documentation Guidance
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Application Support
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> CV & Job Market Prep
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> Interview Preparation
+                </li>
+                <li class="kraft-help-item">
+                  <span class="kraft-help-icon">✔</span> End-to-end Assistance
+                </li>
+              </ul>
+            </div>
+
+            <div class="meta-footer">
+              <span class="info-badge">⏳ Time: 4–6 Months</span>
+              <span class="info-badge outline">Entry: 6 Points</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row reverse-layout">
+          <div class="detail-image">
+            <img
+              src="../assets/images/immigration-4.png"
+              alt="Why Choose Kraft Mobility"
+            />
+          </div>
+          <div class="detail-content">
+            <h2>Why Kraft Mobility?</h2>
+            <p class="lead-text">
+              15+ years of immigration expertise. We simplify the complex PR
+              process with expert case handling and transparent updates.
+            </p>
+
+            <ul class="premium-list check-circle">
+              <li><strong>Transparent Pricing:</strong> No hidden charges.</li>
+              <li>
+                <strong>Dedicated Case Officer:</strong> Personal support for
+                your file.
+              </li>
+              <li><strong>Strong Success Record:</strong> Proven results.</li>
+              <li>
+                <strong>Global Support:</strong> Offices to assist you
+                internationally.
+              </li>
+              <li>
+                <strong>Complete Support:</strong> From application to landing.
+              </li>
+            </ul>
+
+            <div class="contact-card">
+              <p class="contact-title">Start Your Journey Today</p>
+              <div class="contact-links">
+                <a href="tel:+919632006896" class="contact-btn phone"
+                  >📞 +91 963 2006 896</a
+                >
+                <a href="https://www.kraftmobility.in" class="contact-btn web"
+                  >🌐 www.kraftmobility.in</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-logo-wrapper">
+          <img src="../assets/images/logo.svg" alt="Logo" class="logo-image" />
+        </div>
+
+        <div class="footer-divider-small"></div>
+
+        <div class="footer-text">
+          <h3>Relocation is an emotional journey</h3>
+          <p>“Finding a sense of belonging in unfamiliar surroundings”</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-icon facebook" aria-label="Facebook"
+            ><img src="../assets/images/facebook-icon.png" alt="Facebook Icon"
+          /></a>
+          <a href="#" class="social-icon instagram" aria-label="Instagram"
+            ><img src="../assets/images/instagram-icon.png" alt="Instagram Icon"
+          >
+          <a href="#" class="social-icon linkedin" aria-label="LinkedIn"
+            ><img src="../assets/images/linkedin-icon.png" alt="LinkedIn Icon"
+          /></a>
+          <a href="#" class="social-icon twitter" aria-label="Twitter"><img src="../assets/images/twitter-icon.png" alt="Twitter Icon"></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          Copyright © 2025 kraftmobility - All Rights Reserved.
+        </p>
+        <a href="#" class="privacy-policy">Privacy Policy</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

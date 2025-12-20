@@ -317,6 +317,263 @@
 }
 
 /* =========================================
+   3. PREMIUM CONTENT STYLING
+   ========================================= */
+
+/* Tiny tag above title */
+.country-tag {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #c1671d;
+  background: rgba(193, 103, 29, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Lead text (Intro paragraph) */
+.lead-text {
+  font-size: 18px !important; /* Slightly larger than normal text */
+  color: #555 !important;
+  margin-bottom: 25px;
+}
+
+/* Sub-labels (e.g., 'Why Canada?') */
+.sub-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+/* Info Grid (Splits lists into 2 columns on desktop) */
+.info-grid {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+.info-col {
+  flex: 1;
+}
+
+/* Premium Lists */
+.premium-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.premium-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Custom Checkmark Icon */
+.premium-list li::before {
+  content: "✔"; /* Standard checkmark */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #c1671d; /* Brand color */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Variation: Two column list within one block */
+.premium-list.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+/* Badges (Processing Time, etc) */
+.meta-footer {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #c1671d;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px; /* Pill shape */
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(193, 103, 29, 0.2);
+}
+
+.info-badge.outline {
+  background-color: transparent;
+  border: 1px solid #c1671d;
+  color: #c1671d;
+  box-shadow: none;
+}
+
+/* Contact Card (Why Us Section) */
+.contact-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #c1671d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+.contact-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.contact-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.contact-btn:hover {
+  color: #c1671d;
+}
+
+/* --- MOBILE ADJUSTMENTS FOR NEW ELEMENTS --- */
+@media (max-width: 600px) {
+  .info-grid {
+    flex-direction: column; /* Stack columns on mobile */
+    gap: 20px;
+  }
+
+  .premium-list.two-col {
+    grid-template-columns: 1fr; /* Stack grid lists on mobile */
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* =========================================
+   4. KRAFT MOBILITY HELP SECTION (Unique Classes)
+   ========================================= */
+
+.kraft-help-container {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5; /* Subtle border */
+  border-radius: 12px; /* Soft rounded corners */
+  padding: 25px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04); /* Very soft premium shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+/* A decorative top accent line */
+.kraft-help-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #c1671d, #eabf9f); /* Brand gradient */
+}
+
+.kraft-help-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #c1671d;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The Grid Layout */
+.kraft-help-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  column-gap: 30px;
+  row-gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Individual Items */
+.kraft-help-item {
+  display: flex;
+  align-items: flex-start; /* Aligns icon with top line of text */
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  transition: transform 0.2s ease;
+}
+
+.kraft-help-item:hover {
+  transform: translateX(5px); /* Subtle movement on hover */
+  color: #000;
+}
+
+/* Custom Icon for the list */
+.kraft-help-icon {
+  min-width: 18px;
+  height: 18px;
+  background-color: rgba(193, 103, 29, 0.1);
+  color: #c1671d;
+  border-radius: 50%; /* Circle shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-right: 12px;
+  margin-top: 2px; /* Visual alignment */
+}
+
+/* Mobile: Switch to 1 column */
+@media (max-width: 600px) {
+  .kraft-help-grid {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+}
+
+/* =========================================
    4. DROPDOWN HOVER FIX
    ========================================= */
 /* Ensure the hover works for both Services and Location */
